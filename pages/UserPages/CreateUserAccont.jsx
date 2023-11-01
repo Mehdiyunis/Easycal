@@ -19,7 +19,7 @@ export default function CreateUserAccount({navigation}) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/mail.png")}
+            source={require("../../assets/imgs/mail.png")}
           />
           <TextInput
             style={styles.input}
@@ -30,7 +30,7 @@ export default function CreateUserAccount({navigation}) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/person.png")}
+            source={require("../../assets/imgs/person.png")}
           />
           <TextInput
             style={styles.input}
@@ -41,7 +41,7 @@ export default function CreateUserAccount({navigation}) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/person.png")}
+            source={require("../../assets/imgs/person.png")}
           />
           <TextInput
             style={styles.input}
@@ -52,7 +52,7 @@ export default function CreateUserAccount({navigation}) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/scan_person.png")}
+            source={require("../../assets/imgs/scan_person.png")}
           />
           <TextInput
             style={styles.input}
@@ -63,7 +63,7 @@ export default function CreateUserAccount({navigation}) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/phone.png")}
+            source={require("../../assets/imgs/phone.png")}
           />
           <TextInput
             style={styles.input}
@@ -74,7 +74,7 @@ export default function CreateUserAccount({navigation}) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/lock_green.png")}
+            source={require("../../assets/imgs/lock_green.png")}
           />
           <TextInput
             style={styles.input}
@@ -86,7 +86,7 @@ export default function CreateUserAccount({navigation}) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/lock_red.png")}
+            source={require("../../assets/imgs/lock_red.png")}
           />
           <TextInput
             style={styles.input}
@@ -98,7 +98,7 @@ export default function CreateUserAccount({navigation}) {
 
       </ScrollView>
 
-      <Pressable style={styles.joinUs} onPress={() => navigation.navigate("HomeUser")}>
+      <Pressable style={styles.joinUs} onPress={() => navigation.navigate("PagesUser")}>
         <Text style={styles.text}>Join us</Text>
       </Pressable>
     </View>

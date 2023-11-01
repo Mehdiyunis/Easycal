@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 
-export default Home = () => {
+export default Home = ({navigation}) => {
 
 
   const data = [
@@ -17,21 +17,25 @@ export default Home = () => {
       id: 1,
       title: "Analysis",
       image: require("../assets/imgs/servicesOne.jpeg"),
+      url:"OnlineQueue",
     },
     {
       id: 2,
       title: "Online queue",
       image: require("../assets/imgs/services2.png"),
+      url:"OnlineQueue",
     },
     {
       id: 3,
       title: "Clinics",
       image: require("../assets/imgs/services3.jpeg"),
+      url:"OnlineQueue",
     },
     {
       id: 4,
       title: "Check-up",
       image: require("../assets/imgs/services4.jpeg"),
+      url:"OnlineQueue",
     },
   ];
 
@@ -47,10 +51,10 @@ export default Home = () => {
 
         <View style={styles.cards}>
           {data.map((item) => (
-            <View key={item.id} style={styles.card}>
+            <Pressable onPress={() => navigation.navigate(item.url)} key={item.id} style={styles.card}>
               <Text style={styles.cardText}>{item.title}</Text>
               <Image style={styles.cardImg} source={item.image} />
-            </View>
+            </Pressable>
           ))}
         </View>
       </ScrollView>
@@ -119,6 +123,7 @@ const styles = StyleSheet.create({
     objectFit: "cover",
     alignSelf: "flex-end",
     marginLeft: "auto",
+    
   },
 
 });

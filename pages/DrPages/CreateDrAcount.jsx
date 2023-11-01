@@ -41,7 +41,7 @@ export default function CreateDrAccount({ navigation }) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/mail.png")}
+            source={require("../../assets/imgs/mail.png")}
           />
           <TextInput
             style={styles.input}
@@ -57,7 +57,7 @@ export default function CreateDrAccount({ navigation }) {
           <View>
             <Image
               style={styles.absoluteImg}
-              source={require("../assets/imgs/home_icon.png")}
+              source={require("../../assets/imgs/home_icon.png")}
             />
 
             <TextInput
@@ -70,7 +70,7 @@ export default function CreateDrAccount({ navigation }) {
 
             <Image
               style={[styles.rightImg, { transform: iconTransform }]}
-              source={require("../assets/imgs/up_icon.png")}
+              source={require("../../assets/imgs/up_icon.png")}
             />
           </View>
 
@@ -107,7 +107,7 @@ export default function CreateDrAccount({ navigation }) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/lock_green.png")}
+            source={require("../../assets/imgs/lock_green.png")}
           />
           <TextInput
             style={styles.input}
@@ -120,7 +120,7 @@ export default function CreateDrAccount({ navigation }) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/person.png")}
+            source={require("../../assets/imgs/person.png")}
           />
           <TextInput
             style={styles.input}
@@ -131,7 +131,7 @@ export default function CreateDrAccount({ navigation }) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/person.png")}
+            source={require("../../assets/imgs/person.png")}
           />
           <TextInput
             style={styles.input}
@@ -142,7 +142,7 @@ export default function CreateDrAccount({ navigation }) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/scan_person.png")}
+            source={require("../../assets/imgs/scan_person.png")}
           />
           <TextInput
             style={styles.input}
@@ -153,7 +153,7 @@ export default function CreateDrAccount({ navigation }) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/phone.png")}
+            source={require("../../assets/imgs/phone.png")}
           />
           <TextInput
             style={styles.input}
@@ -164,7 +164,7 @@ export default function CreateDrAccount({ navigation }) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/lock_green.png")}
+            source={require("../../assets/imgs/lock_green.png")}
           />
           <TextInput
             style={styles.input}
@@ -176,7 +176,7 @@ export default function CreateDrAccount({ navigation }) {
         <View style={styles.inputContiner}>
           <Image
             style={styles.absoluteImg}
-            source={require("../assets/imgs/lock_red.png")}
+            source={require("../../assets/imgs/lock_red.png")}
           />
           <TextInput
             style={styles.input}
@@ -187,7 +187,7 @@ export default function CreateDrAccount({ navigation }) {
         </View>
       </ScrollView>
 
-      <Pressable style={styles.joinUs} onPress={() => navigation.navigate("HomeDr")}>
+      <Pressable style={styles.joinUs} onPress={() => navigation.navigate("PagesDr")}>
         <Text style={styles.text}>Join us</Text>
       </Pressable>
     </View>
