@@ -9,38 +9,52 @@ import {
 } from "react-native";
 
 
-export default Home = () => {
+export default Home = ({navigation}) => {
 
 
   const data = [
     {
       id: 1,
-      title: "Add analyze",
-      image: require("../assets/imgs/drservice1.png"),
+      title: "Analysis",
+      image: require("../../assets/imgs/servicesOne.jpeg"),
+      url:"OnlineQueue",
     },
     {
       id: 2,
-      title: "Appointments",
-      image: require("../assets/imgs/drservice2.jpeg"),
+      title: "Online queue",
+      image: require("../../assets/imgs/services2.png"),
+      url:"OnlineQueue",
+    },
+    {
+      id: 3,
+      title: "Clinics",
+      image: require("../../assets/imgs/services3.jpeg"),
+      url:"Clinics",
+    },
+    {
+      id: 4,
+      title: "Check-up",
+      image: require("../../assets/imgs/services4.jpeg"),
+      url:"OnlineQueue",
     },
   ];
 
   return (
     <View style={styles.continer}>
-      <Image style={styles.logo} source={require("../assets/imgs/logo.png")} />
+      <Image style={styles.logo} source={require("../../assets/imgs/logo.png")} />
 
       <ScrollView>
         <View style={styles.titleContainer}>
           <Text style={styles.welcome}>Welcome back, </Text>
-          <Text style={styles.userName}>Tünzalə!</Text>
+          <Text style={styles.userName}>Mehdi!</Text>
         </View>
 
         <View style={styles.cards}>
           {data.map((item) => (
-            <View key={item.id} style={styles.card}>
+            <Pressable onPress={() => navigation.navigate(item.url)} key={item.id} style={styles.card}>
               <Text style={styles.cardText}>{item.title}</Text>
               <Image style={styles.cardImg} source={item.image} />
-            </View>
+            </Pressable>
           ))}
         </View>
       </ScrollView>
@@ -89,7 +103,7 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: "#FFFFFF",
-    width: '100%',
+    width: 170,
     height: 200,
     display: "flex",
     flexDirection: "row",
@@ -98,7 +112,7 @@ const styles = StyleSheet.create({
   },
   cardText: {
     color: "#10B584",
-    fontSize: 25,
+    fontSize: 16,
     fontWeight: "700",
     marginTop: 20,
     marginLeft: 20,
@@ -109,6 +123,7 @@ const styles = StyleSheet.create({
     objectFit: "cover",
     alignSelf: "flex-end",
     marginLeft: "auto",
+    
   },
 
 });

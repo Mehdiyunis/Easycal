@@ -9,9 +9,10 @@ import ForgotPasword from "./pages/ForgotPasword";
 import Verification from "./pages/Verification";
 import NewPass from "./pages/NewPass";
 import PassUpdated from "./pages/PassUpdated";
-import HomeUser from "./pages/HomeUser";
-import HomeDr from "./pages/HomeDr";
-import OnlineQueue from "./pages/OnlineQueue";
+import HomeUser from "./pages/UserPages/HomeUser";
+import HomeDr from "./pages/DrPages/HomeDr";
+import OnlineQueue from "./pages/UserPages/OnlineQueue";
+import Clinics from "./pages/UserPages/Clinics";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,11 +27,6 @@ const screenOptions = {
     left: 0,
     right: 0,
     elevation: 0,
-    borderWidth: 'none',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 };
 
@@ -49,6 +45,11 @@ function HomeUserPages() {
       <Stack.Screen
         name="OnlineQueue"
         component={OnlineQueue}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Clinics"
+        component={Clinics}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -159,6 +160,7 @@ function App() {
           component={PagesUser}
           options={{ headerShown: false }}
         />
+
         <Stack.Screen
           name="PagesDr"
           component={PagesDr}

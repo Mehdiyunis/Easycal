@@ -1,11 +1,18 @@
-import React, {useState} from "react";
-import { Pressable, View, Image, TextInput , ScrollView , StyleSheet ,Text} from "react-native";
+import React, { useState } from "react";
+import {
+  Pressable,
+  View,
+  Image,
+  TextInput,
+  ScrollView,
+  StyleSheet,
+  Text,
+} from "react-native";
 
-export default DropDown = ({}) => {
+export default DropDown = ({ icon }) => {
   const [selected, setSelected] = useState("");
   const [openDropDown, setOpenDropDown] = useState(false);
   const iconTransform = openDropDown ? [] : [{ rotate: "180deg" }];
-
 
   const data = [
     { key: 1, value: "West" },
@@ -22,10 +29,7 @@ export default DropDown = ({}) => {
       onPress={() => setOpenDropDown(!openDropDown)}
     >
       <View>
-        <Image
-          style={styles.absoluteImg}
-          source={require("../assets/imgs/home_icon.png")}
-        />
+        <Image style={styles.absoluteImg} source={icon} />
 
         <TextInput
           editable={false}
@@ -75,8 +79,10 @@ export default DropDown = ({}) => {
 };
 
 const styles = StyleSheet.create({
-    inputContiner: {
+  inputContiner: {
     position: "relative",
+    marginBottom: 20,
+    justifyContent: "flex-end",
   },
   absoluteImg: {
     position: "absolute",
@@ -109,4 +115,4 @@ const styles = StyleSheet.create({
     right: 20,
     transform: [{ rotate: "180deg" }],
   },
-})
+});
