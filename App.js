@@ -14,6 +14,7 @@ import HomeDr from "./pages/DrPages/HomeDr";
 import OnlineQueue from "./pages/UserPages/OnlineQueue";
 import Clinics from "./pages/UserPages/Clinics";
 import AddAnalyze from "./pages/DrPages/AddAnalyze";
+import Appointments from "./pages/DrPages/Appointments";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,9 +31,6 @@ const screenOptions = {
     elevation: 0,
   },
 };
-
-
-
 
 
 function HomeUserPages() {
@@ -67,6 +65,11 @@ function HomeDrPages() {
       <Stack.Screen
         name="AddAnalyze"
         component={AddAnalyze}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Appointments"
+        component={Appointments}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

@@ -23,7 +23,7 @@ export default Home = ({navigation}) => {
       id: 2,
       title: "Appointments",
       image: require("../../assets/imgs/drservice2.jpeg"),
-      url:"AddAnalyze"
+      url:"Appointments"
     },
   ];
 
