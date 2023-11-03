@@ -6,10 +6,11 @@ import {
   Pressable,
   TextInput,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-export default Clinics = () => {
+export default Clinics = ({navigation}) => {
   return (
     <View style={styles.section}>
       <View style={styles.container}>
@@ -104,16 +105,57 @@ export default Clinics = () => {
           </Pressable>
         </View>
 
-        <View>
+        <View style={{gap: 10}}>
+          <View
+            style={{
+              padding: 20,
+              backgroundColor: "white",
+              borderRadius: 12,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <View style={{ flex: 1 , gap: 10}}>
+              <Text
+                style={{ color: "#1F1F1F", fontSize: 16, fontWeight: "700" }}
+              >
+                Medistyle hospital
+              </Text>
 
-          <View style={{padding: 20, backgroundColor: 'white', borderRadius: 12}}>
-            <View>
-                <Text style={{color: '#1F1F1F', fontSize: 16, fontWeight: '700'}}>Medistyle hospital</Text>
-                <Text style={{color: '#7C7C7C', fontSize: 13, fontWeight: '500'}}>18A Əhməd Rəcəbli, Bakı</Text>
-                <Image source={require('../../assets/imgs/location.png')} />
+              <View style={{display: 'flex', flexDirection: 'row' ,gap: 10}}>
+                <Image source={require("../../assets/imgs/location.png")} />
+                <Text
+                  style={{ color: "#7C7C7C", fontSize: 13, fontWeight: "500" }}
+                >
+                  18A Əhməd Rəcəbli, Bakı
+                </Text>
+              </View>
+
+              <View style={{display: 'flex' , flexWrap: 'wrap', flexDirection: 'row', gap: 10}}>
+                <Text style={{backgroundColor: '#eee', borderRadius: 4 , paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600'}}>Urologiya</Text>
+                <Text style={{backgroundColor: '#eee', borderRadius: 4 , paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600'}}>Laboratoriya</Text>
+              </View>
             </View>
 
-            <Pressable style={{borderRadius: 4, backgroundColor: '#10B584', paddingVertical: 6, paddingHorizontal: 12, color: 'white' , fontSize: 12, fontWeight: '600'}}><Text>View more</Text></Pressable>
+            <TouchableOpacity
+              style={{
+                borderRadius: 4,
+                backgroundColor: "#10B584",
+                paddingVertical: 6,
+                paddingHorizontal: 12,
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 12,
+                  fontWeight: "600",
+                }}
+              >
+                View more
+              </Text>
+            </TouchableOpacity>
           </View>
 
         </View>

@@ -6,17 +6,18 @@ import {
   Text,
   Image,
   ScrollView,
+  TextInput
 } from "react-native";
 import DropDown from "../../components/DropDown";
 import { Ionicons } from "@expo/vector-icons";
 
-export default OnlineQueue = ({ navigation }) => {
+export default AddAnalyze = ({ navigation }) => {
   return (
     <View style={styles.continer}>
       <View style={{ width: "100%", position: "relative", marginTop: 30 }}>
         <Pressable
           style={styles.goBack}
-          onPress={() => navigation.navigate("HomeUser")}
+          onPress={() => navigation.navigate("HomeDr")}
         >
           <Ionicons
             name="arrow-back-outline"
@@ -33,7 +34,7 @@ export default OnlineQueue = ({ navigation }) => {
             textAlign: "center",
           }}
         >
-          Online Queue
+          Add analyze
         </Text>
 
         <Image
@@ -44,14 +45,36 @@ export default OnlineQueue = ({ navigation }) => {
 
       <View style={{ paddingHorizontal: 19 }}>
         <ScrollView
-          style={{ gap: 20 }}
-          contentContainerStyle={{ justifyContent: 'flex-end'}}
+          contentContainerStyle={{ justifyContent: "flex-end" }}
           nestedScrollEnabled={true}
         >
-          <DropDown icon={require("../../assets/imgs/prison.png")} />
-          <DropDown icon={require("../../assets/imgs/dr.png")} />
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/lock_green.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your сompany pin"
+              secureTextEntry={false}
+            />
+          </View>
+
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/lock_green.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your сompany pin"
+              secureTextEntry={false}
+            />
+          </View>
+
           <DropDown icon={require("../../assets/imgs/date.png")} />
-          <DropDown icon={require("../../assets/imgs/hours.png")} />
         </ScrollView>
         <Pressable
           style={styles.btnLogIn}
@@ -114,5 +137,32 @@ const styles = StyleSheet.create({
     height: 226,
     left: "50%",
     transform: [{ translateX: -142.5 }],
+  },
+
+  inputContiner: {
+    position: "relative",
+    marginBottom: 20,
+  },
+
+  absoluteImg: {
+    position: "absolute",
+    display: "flex",
+    height: "100%",
+    alignItems: "center",
+    objectFit: "contain",
+    zIndex: 1,
+    top: 0,
+    left: 12,
+  },
+
+  input: {
+    backgroundColor: "#eee",
+    paddingVertical: 18,
+    paddingLeft: 38,
+    paddingRight: 8,
+    fontSize: 16,
+    fontWeight: "600",
+    borderRadius: 4,
+    color: "#1F1F1F",
   },
 });
