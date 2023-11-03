@@ -10,98 +10,103 @@ import {
   Pressable,
 } from "react-native";
 
-export default function CreateUserAccount({navigation}) {
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
+export default function CreateUserAccount({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.headText}>Create new account</Text>
+    <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
 
-      <ScrollView contentContainerStyle={{ rowGap: 24 }}>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/mail.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="email-address"
-            placeholder="Enter your e-mail"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/person.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your name"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/person.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your surname"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/scan_person.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="number-pad"
-            placeholder="Enter your id number"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/phone.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="number-pad"
-            placeholder="Enter your mobile number"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/lock_green.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your password"
-            secureTextEntry={true}
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/lock_red.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your password"
-            secureTextEntry={true}
-          />
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.headText}>Create new account</Text>
 
-      </ScrollView>
+        <ScrollView contentContainerStyle={{ rowGap: 24 }}>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/mail.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="email-address"
+              placeholder="Enter your e-mail"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/person.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your name"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/person.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your surname"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/scan_person.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="number-pad"
+              placeholder="Enter your id number"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/phone.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="number-pad"
+              placeholder="Enter your mobile number"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/lock_green.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your password"
+              secureTextEntry={true}
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/lock_red.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your password"
+              secureTextEntry={true}
+            />
+          </View>
 
-      <Pressable style={styles.joinUs} onPress={() => navigation.navigate("PagesUser")}>
-        <Text style={styles.text}>Join us</Text>
-      </Pressable>
-    </View>
+        </ScrollView>
+
+        <Pressable style={styles.joinUs} onPress={() => navigation.navigate("PagesUser")}>
+          <Text style={styles.text}>Join us</Text>
+        </Pressable>
+      </View>
+    </KeyboardAwareScrollView>
   );
 }
 

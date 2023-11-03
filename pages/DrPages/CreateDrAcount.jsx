@@ -9,6 +9,7 @@ import {
   Image,
   Pressable,
 } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function CreateDrAccount({ navigation }) {
   const [selected, setSelected] = useState("");
@@ -34,163 +35,166 @@ export default function CreateDrAccount({ navigation }) {
   ];
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.headText}>Create new account</Text>
+    <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
 
-      <ScrollView contentContainerStyle={{ rowGap: 24 }}>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/mail.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="email-address"
-            placeholder="Enter your e-mail"
-          />
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.headText}>Create new account</Text>
 
-        <Pressable
-          style={styles.inputContiner}
-          onPress={() => setOpenDropDown(!openDropDown)}
-        >
-          <View>
+        <ScrollView contentContainerStyle={{ rowGap: 24 }}>
+          <View style={styles.inputContiner}>
             <Image
               style={styles.absoluteImg}
-              source={require("../../assets/imgs/home_icon.png")}
+              source={require("../../assets/imgs/mail.png")}
             />
-
             <TextInput
-              editable={false}
               style={styles.input}
               keyboardType="email-address"
-              placeholder={"Select your company"}
-              value={selected}
-            />
-
-            <Image
-              style={[styles.rightImg, { transform: iconTransform }]}
-              source={require("../../assets/imgs/up_icon.png")}
+              placeholder="Enter your e-mail"
             />
           </View>
 
-          <ScrollView
-            nestedScrollEnabled={true}
-            style={{
-              display: openDropDown ? "block" : "none",
-              paddingTop: 6,
-              height: 200,
-            }}
+          <Pressable
+            style={styles.inputContiner}
+            onPress={() => setOpenDropDown(!openDropDown)}
           >
-            {data.map((item) => (
-              <Text
-                key={item.key}
-                onPress={() => {
-                  setSelected(item.value);
-                  setOpenDropDown(!openDropDown);
-                }}
-                style={{
-                  padding: 11,
-                  fontSize: 14,
-                  fontWeight: "600",
-                  backgroundColor: "#eee",
-                  color: "#1F1F1F",
-                  marginBottom: 2,
-                  borderRadius: 4,
-                }}
-              >
-                {item.value}
-              </Text>
-            ))}
-          </ScrollView>
+            <View>
+              <Image
+                style={styles.absoluteImg}
+                source={require("../../assets/imgs/home_icon.png")}
+              />
+
+              <TextInput
+                editable={false}
+                style={styles.input}
+                keyboardType="email-address"
+                placeholder={"Select your company"}
+                value={selected}
+              />
+
+              <Image
+                style={[styles.rightImg, { transform: iconTransform }]}
+                source={require("../../assets/imgs/up_icon.png")}
+              />
+            </View>
+
+            <ScrollView
+              nestedScrollEnabled={true}
+              style={{
+                display: openDropDown ? "block" : "none",
+                paddingTop: 6,
+                height: 200,
+              }}
+            >
+              {data.map((item) => (
+                <Text
+                  key={item.key}
+                  onPress={() => {
+                    setSelected(item.value);
+                    setOpenDropDown(!openDropDown);
+                  }}
+                  style={{
+                    padding: 11,
+                    fontSize: 14,
+                    fontWeight: "600",
+                    backgroundColor: "#eee",
+                    color: "#1F1F1F",
+                    marginBottom: 2,
+                    borderRadius: 4,
+                  }}
+                >
+                  {item.value}
+                </Text>
+              ))}
+            </ScrollView>
+          </Pressable>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/lock_green.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your сompany pin"
+              secureTextEntry={false}
+            />
+          </View>
+
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/person.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your name"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/person.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your surname"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/scan_person.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="number-pad"
+              placeholder="Enter your id number"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/phone.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="number-pad"
+              placeholder="Enter your mobile number"
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/lock_green.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your password"
+              secureTextEntry={true}
+            />
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/lock_red.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your password"
+              secureTextEntry={true}
+            />
+          </View>
+        </ScrollView>
+
+        <Pressable style={styles.joinUs} onPress={() => navigation.navigate("PagesDr")}>
+          <Text style={styles.text}>Join us</Text>
         </Pressable>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/lock_green.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your сompany pin"
-            secureTextEntry={false}
-          />
-        </View>
-
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/person.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your name"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/person.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your surname"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/scan_person.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="number-pad"
-            placeholder="Enter your id number"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/phone.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="number-pad"
-            placeholder="Enter your mobile number"
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/lock_green.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your password"
-            secureTextEntry={true}
-          />
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../../assets/imgs/lock_red.png")}
-          />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your password"
-            secureTextEntry={true}
-          />
-        </View>
-      </ScrollView>
-
-      <Pressable style={styles.joinUs} onPress={() => navigation.navigate("PagesDr")}>
-        <Text style={styles.text}>Join us</Text>
-      </Pressable>
-    </View>
+      </View>
+    </KeyboardAwareScrollView>
   );
 }
 

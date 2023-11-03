@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 export default Clinics = ({navigation}) => {
   return (
@@ -48,17 +49,18 @@ export default Clinics = ({navigation}) => {
             gap: 10,
           }}
         >
-          <View style={styles.inputContiner}>
-            <Image
-              style={styles.absoluteImg}
-              source={require("../../assets/imgs/search.png")}
-            />
-            <TextInput
-              style={styles.input}
-              keyboardType="ascii-capable"
-              placeholder="Enter clinic name"
-            />
-          </View>
+          
+            <View style={styles.inputContiner}>
+              <Image
+                style={styles.absoluteImg}
+                source={require("../../assets/imgs/search.png")}
+              />
+                <TextInput
+                  style={styles.input}
+                  keyboardType="ascii-capable"
+                  placeholder="Enter clinic name"
+                />   
+            </View>
 
           <Pressable
             style={{
@@ -133,8 +135,8 @@ export default Clinics = ({navigation}) => {
               </View>
 
               <View style={{display: 'flex' , flexWrap: 'wrap', flexDirection: 'row', gap: 10}}>
-                <Text style={{backgroundColor: '#eee', borderRadius: 4 , paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600'}}>Urologiya</Text>
-                <Text style={{backgroundColor: '#eee', borderRadius: 4 , paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600'}}>Laboratoriya</Text>
+                <Text style={{backgroundColor: '#eee', borderRadius: 4 , overflow : "hidden", paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600'}}>Urologiya</Text>
+                <Text style={{backgroundColor: '#eee', borderRadius: 4 , overflow : "hidden", paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600'}}>Laboratoriya</Text>
               </View>
             </View>
 

@@ -6,6 +6,7 @@ import {
   Text,
   ScrollView,
   Pressable,
+  PixelRatio,
 } from "react-native";
 
 
@@ -16,7 +17,7 @@ export default Home = ({navigation}) => {
     {
       id: 1,
       title: "Analysis",
-      image: require("../../assets/imgs/services1.jpeg"),
+      image: require("../../assets/imgs/services1.jpg"),
       url:"OnlineQueue",
     },
     {
@@ -34,7 +35,7 @@ export default Home = ({navigation}) => {
     {
       id: 4,
       title: "Check-up",
-      image: require("../../assets/imgs/services4.jpeg"),
+      image: require("../../assets/imgs/services4.jpg"),
       url:"OnlineQueue",
     },
   ];
@@ -71,7 +72,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#F7F7F7",
   },
-
   logo: {
     width: 191,
     height: 54,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   cardImg: {
     width: "70%",
     height: "70%",
-    objectFit: "cover",
+    objectFit: "contain",
     alignSelf: "flex-end",
     marginLeft: "auto",
     

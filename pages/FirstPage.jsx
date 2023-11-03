@@ -4,6 +4,7 @@ import {
   View,
   Image,
   Pressable,
+  PixelRatio,
 } from "react-native";
 // import global from "../styles";
 
@@ -45,6 +46,8 @@ export default function FirstPage({ navigation }) {
   );
 }
 
+
+
 const styles = StyleSheet.create({
   continer: {
     flex: 1,
@@ -68,7 +71,8 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     alignItems: "center",
     display: "flex",
-    gap: 20,
+    gap: PixelRatio.getPixelSizeForLayoutSize(20),
+    // gap: PixelRatio.getPixelSizeForLayoutSize(20),
   },
   logSignImg: {
     width: 360,
