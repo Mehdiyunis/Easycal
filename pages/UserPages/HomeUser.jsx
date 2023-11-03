@@ -16,7 +16,7 @@ export default Home = ({navigation}) => {
     {
       id: 1,
       title: "Analysis",
-      image: require("../../assets/imgs/servicesOne.jpeg"),
+      image: require("../../assets/imgs/services1.jpeg"),
       url:"OnlineQueue",
     },
     {
@@ -28,7 +28,7 @@ export default Home = ({navigation}) => {
     {
       id: 3,
       title: "Clinics",
-      image: require("../../assets/imgs/services3.jpeg"),
+      image: require("../../assets/imgs/services3.png"),
       url:"Clinics",
     },
     {
@@ -99,10 +99,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     rowGap: 25,
-    columnGap: 10,
+    justifyContent : "space-between"
   },
   card: {
     backgroundColor: "#FFFFFF",
+    fontSize : "16px",
     width: 170,
     height: 200,
     display: "flex",
