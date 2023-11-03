@@ -7,12 +7,18 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
+  Keyboard
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 export default Clinics = ({navigation}) => {
+
+  const handleUnfocus = () => {
+    Keyboard.dismiss();
+  };
+
   return (
-    <View style={styles.section}>
+    <View  onStartShouldSetResponder={handleUnfocus}  accessible={true} style={styles.section}>
       <View style={styles.container}>
         <View
           style={{ width: "100%", position: "relative", marginVertical: 30 }}
@@ -35,6 +41,7 @@ export default Clinics = ({navigation}) => {
               color: "#10B584",
               textAlign: "center",
             }}
+            
           >
             Clinics
           </Text>
