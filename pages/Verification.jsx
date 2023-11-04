@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default Verification = ({ navigation }) => {
   const [code, setCode] = useState(["", "", "", ""]);
@@ -23,7 +24,9 @@ export default Verification = ({ navigation }) => {
 
       if (text.length === 1 && index < 3) {
         inputRefs[index + 1].current.focus();
-
+      }
+      else if (text.length === 0 && (index > 0 && index <= 3)) {
+        inputRefs[index - 1].current.focus();
       }
     }
   };
@@ -31,62 +34,65 @@ export default Verification = ({ navigation }) => {
 
 
   return (
-    <View style={styles.container}>
-      <Pressable
-        style={styles.goBack}
-        onPress={() => navigation.navigate("ForgotPasword")}
-      >
-        <Ionicons
-          name="arrow-back-outline"
-          size={24}
-          style={styles.leftArrow}
-        />
-      </Pressable>
+    <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
 
-      <View style={styles.content}>
-        <Image
-          style={styles.img}
-          source={require("../assets/imgs/verify.png")}
-        />
-        <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
-          Enter verification code
-        </Text>
-        <Text
-          style={{
-            color: "rgba(31, 31, 31, 0.80)",
-            fontSize: 16,
-            fontWeight: "400",
-            textAlign: "center",
-          }}
+      <View style={styles.container}>
+        <Pressable
+          style={styles.goBack}
+          onPress={() => navigation.navigate("ForgotPasword")}
         >
-          Enter the 4-digit code we sent to your e-mail address.
-        </Text>
+          <Ionicons
+            name="arrow-back-outline"
+            size={24}
+            style={styles.leftArrow}
+          />
+        </Pressable>
 
-        <View style={styles.inputs}>
-          {code.map((digit, index) => (
-            <TextInput
-              key={index}
-              style={digit ? styles.inputed : styles.input}
-              value={digit}
-              onChangeText={(text) => handleChangeText(text, index)}
-              keyboardType="numeric"
-              maxLength={1}
-              ref={inputRefs[index]}
-              placeholder="-"
-            />
-          ))}
+        <View style={styles.content}>
+          <Image
+            style={styles.img}
+            source={require("../assets/imgs/verify.png")}
+          />
+          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
+            Enter verification code
+          </Text>
+          <Text
+            style={{
+              color: "rgba(31, 31, 31, 0.80)",
+              fontSize: 16,
+              fontWeight: "400",
+              textAlign: "center",
+            }}
+          >
+            Enter the 4-digit code we sent to your e-mail address.
+          </Text>
+
+          <View style={styles.inputs}>
+            {code.map((digit, index) => (
+              <TextInput
+                key={index}
+                style={digit ? styles.inputed : styles.input}
+                value={digit}
+                onChangeText={(text) => handleChangeText(text, index)}
+                keyboardType="numeric"
+                maxLength={1}
+                ref={inputRefs[index]}
+                placeholder="-"
+              />
+            ))}
+          </View>
+
+          <TouchableOpacity style={styles.resendTouch}><Text style={styles.resend}>Resend code</Text></TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.resendTouch}><Text  style={styles.resend}>Resend code</Text></TouchableOpacity>
+        <Pressable
+          style={styles.btnLogIn}
+          onPress={() => navigation.navigate("NewPass")}
+        >
+          <Text style={styles.text}>Continue</Text>
+        </Pressable>
       </View>
-
-      <Pressable
-        style={styles.btnLogIn}
-        onPress={() => navigation.navigate("NewPass")}
-      >
-        <Text style={styles.text}>Continue</Text>
-      </Pressable>
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -164,13 +170,13 @@ const styles = StyleSheet.create({
     borderColor: '#10B584'
   },
 
-  resendTouch:{
+  resendTouch: {
     textAlign: 'left',
     alignSelf: 'flex-start',
   },
-  resend:{
+  resend: {
     color: '#10B584',
-    fontSize: 18, 
+    fontSize: 18,
     fontWeight: '600'
   }
 

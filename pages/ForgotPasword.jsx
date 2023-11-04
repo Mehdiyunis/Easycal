@@ -8,62 +8,65 @@ import {
   Text,
   TextInput,
 } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Ionicons } from "@expo/vector-icons";
 
 const ForgotPasword = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Pressable
-        style={styles.goBack}
-        onPress={() => navigation.navigate("LogIn")}
-      >
-        <Ionicons
-          name="arrow-back-outline"
-          size={24}
-          style={styles.leftArrow}
-        />
-      </Pressable>
-
-      <View style={styles.content}>
-        <Image
-          style={styles.img}
-          source={require("../assets/imgs/frogotImage.png")}
-        />
-        <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
-          Forgot your password?
-        </Text>
-        <Text
-          style={{
-            color: "rgba(31, 31, 31, 0.80)",
-            fontSize: 16,
-            fontWeight: "400",
-            textAlign: "center",
-          }}
+    <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Pressable
+          style={styles.goBack}
+          onPress={() => navigation.navigate("LogIn")}
         >
-          Don't worry, it can happen to anyone. Please enter the email address
-          associated with your account.
-        </Text>
+          <Ionicons
+            name="arrow-back-outline"
+            size={24}
+            style={styles.leftArrow}
+          />
+        </Pressable>
 
-        <View style={styles.inputContiner}>
+        <View style={styles.content}>
           <Image
-            style={styles.absoluteImg}
-            source={require("../assets/imgs/mail.png")}
+            style={styles.img}
+            source={require("../assets/imgs/frogotImage.png")}
           />
-          <TextInput
-            style={styles.input}
-            keyboardType="email-address"
-            placeholder="Enter your e-mail"
-          />
-        </View>
-      </View>
+          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
+            Forgot your password?
+          </Text>
+          <Text
+            style={{
+              color: "rgba(31, 31, 31, 0.80)",
+              fontSize: 16,
+              fontWeight: "400",
+              textAlign: "center",
+            }}
+          >
+            Don't worry, it can happen to anyone. Please enter the email address
+            associated with your account.
+          </Text>
 
-      <Pressable
-        style={styles.btnLogIn}
-        onPress={() => navigation.navigate("Verification")}
-      >
-        <Text style={styles.text}>Continue</Text>
-      </Pressable>
-    </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../assets/imgs/mail.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="email-address"
+              placeholder="Enter your e-mail"
+            />
+          </View>
+        </View>
+
+        <Pressable
+          style={styles.btnLogIn}
+          onPress={() => navigation.navigate("Verification")}
+        >
+          <Text style={styles.text}>Continue</Text>
+        </Pressable>
+      </View>
+    </KeyboardAwareScrollView>
   );
 };
 
