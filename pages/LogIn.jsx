@@ -16,11 +16,14 @@ export default function LogIn({ navigation }) {
   const [check, setCheck] = useState(false);
   const [email, setEmailValue] = useState("");
   const [password, setPasswordValue] = useState("");
+  
   return (
+
     <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
       <View style={styles.container}>
         <Image source={require("../assets/imgs/logo.png")} style={styles.logo} />
         <View style={styles.form} >
+
           <Text style={styles.title}>Log in to your account</Text>
           <View style={styles.inputContiner}>
             <Image
@@ -52,6 +55,7 @@ export default function LogIn({ navigation }) {
           </View>
 
           <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }} >
+
             <Checkbox
               value={check}
               style={styles.checkbox}
@@ -60,6 +64,7 @@ export default function LogIn({ navigation }) {
             />
             <Text style = {{fontFamily : "mrt-sbold"}} onPress={() => setCheck(!check)}>I am doctor</Text>
           </View>
+
 
           <Pressable style={styles.btnLogIn} onPress={() => {
             signIn(email, password)
@@ -70,6 +75,7 @@ export default function LogIn({ navigation }) {
               console.log(e)
             })
           }}>
+
             <Text style={styles.text}>Log In</Text>
           </Pressable>
 

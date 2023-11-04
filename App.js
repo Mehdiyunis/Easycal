@@ -15,9 +15,12 @@ import OnlineQueue from "./pages/UserPages/OnlineQueue";
 import Clinics from "./pages/UserPages/Clinics";
 import AddAnalyze from "./pages/DrPages/AddAnalyze";
 import Appointments from "./pages/DrPages/Appointments";
+import ProfileUser from "./pages/UserPages/ProfileUser";
+import ProfileDr from "./pages/DrPages/ProfileDr";
 import { useFonts } from 'expo-font';
 import { useEffect } from "react";
 import * as SplashScreen from 'expo-splash-screen';
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -78,12 +81,23 @@ function HomeDrPages() {
     </Stack.Navigator>
   );
 }
-function Profil() {
+function ProfileUserPages() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Profil"
-        component={Profil}
+        name="ProfileUser"
+        component={ProfileUser}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+}
+function ProfileDrPages() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="ProfileDr"
+        component={ProfileDr}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -99,8 +113,8 @@ function PagesUser() {
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="Profil"
-        component={Profil}
+        name="Profile"
+        component={ProfileUserPages}
         options={{ headerShown: false }}
       />
     </Tab.Navigator>
@@ -115,8 +129,8 @@ function PagesDr() {
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="Profil"
-        component={Profil}
+        name="Profile"
+        component={ProfileDrPages}
         options={{ headerShown: false }}
       />
     </Tab.Navigator>
