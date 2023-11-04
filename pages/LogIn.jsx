@@ -10,10 +10,13 @@ import {
 import React, { useState } from "react";
 import Checkbox from "expo-checkbox";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { signIn } from "../src/config/firebase";
 
 export default function LogIn({ navigation }) {
   const [check, setCheck] = useState(false);
-
+  const [email, setEmailValue] = useState("");
+  const [password, setPasswordValue] = useState("");
+  
   return (
 
     <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
@@ -31,6 +34,8 @@ export default function LogIn({ navigation }) {
               style={styles.input}
               keyboardType="email-address"
               placeholder="Enter your e-mail"
+              value={email}
+              onChangeText={text => setEmailValue(text)}
             />
           </View>
 
@@ -44,6 +49,8 @@ export default function LogIn({ navigation }) {
               keyboardType="ascii-capable"
               placeholder="Enter your password"
               secureTextEntry={true}
+              value={password}
+              onChangeText={text => setPasswordValue(text)}
             />
           </View>
 
@@ -58,7 +65,17 @@ export default function LogIn({ navigation }) {
             <Text onPress={() => setCheck(!check)}>I am doctor</Text>
           </View>
 
-          <Pressable style={styles.btnLogIn} onPress={() => navigation.navigate(check ? "PagesDr" : "PagesUser")}>
+
+          <Pressable style={styles.btnLogIn} onPress={() => {
+            console.log("Hello");
+            signIn(email, password)
+            .then(() => {
+              navigation.navigate(check ? "PagesDr" : "PagesUser");
+            })
+            .catch((e) => {
+              console.log(e)
+            })
+          }}>
 
             <Text style={styles.text}>Log In</Text>
           </Pressable>

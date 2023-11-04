@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,9 +10,16 @@ import {
   Pressable,
 } from "react-native";
 
+import { signUp, signIn } from "../../src/config/firebase";
+
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function CreateUserAccount({ navigation }) {
+  const [email, setEmailValue] = useState("");
+  const [password, setPasswordValue] = useState("");
+  const [password2, setPassword2Value] = useState("");
+  const [name, setNameValue] = useState("");
+
   return (
     <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
 
@@ -29,6 +36,8 @@ export default function CreateUserAccount({ navigation }) {
               style={styles.input}
               keyboardType="email-address"
               placeholder="Enter your e-mail"
+              value={email}
+              onChangeText={(text) => setEmailValue(text)}
             />
           </View>
           <View style={styles.inputContiner}>
@@ -40,6 +49,8 @@ export default function CreateUserAccount({ navigation }) {
               style={styles.input}
               keyboardType="ascii-capable"
               placeholder="Enter your name"
+              value={name}
+              onChangeText={(text) => setNameValue(text)}
             />
           </View>
           <View style={styles.inputContiner}>
@@ -85,6 +96,8 @@ export default function CreateUserAccount({ navigation }) {
               keyboardType="ascii-capable"
               placeholder="Enter your password"
               secureTextEntry={true}
+              value={password}
+              onChangeText={(text) => setPasswordValue(text)}
             />
           </View>
           <View style={styles.inputContiner}>
@@ -97,12 +110,22 @@ export default function CreateUserAccount({ navigation }) {
               keyboardType="ascii-capable"
               placeholder="Enter your password"
               secureTextEntry={true}
+              value={password2}
+              onChangeText={(text) => setPassword2Value(text)}
             />
           </View>
 
         </ScrollView>
 
-        <Pressable style={styles.joinUs} onPress={() => navigation.navigate("PagesUser")}>
+        <Pressable style={styles.joinUs} onPress={() => {
+          if (password === password2) {
+              signUp(name, email, password).then(() => navigation.navigate("PagesUser")).catch(
+                (e) => {
+                  console.log(e);
+                }
+              );
+            };
+        }}>
           <Text style={styles.text}>Join us</Text>
         </Pressable>
       </View>

@@ -8,90 +8,93 @@ import {
   TextInput,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default NewPass = ({ navigation }) => {
   const [firstPass, setFirstPass] = useState(true);
   const [lastPass, setlastPass] = useState(true);
 
   return (
-    <View style={styles.container}>
-      <Pressable
-        style={styles.goBack}
-        onPress={() => navigation.navigate("Verification")}
-      >
-        <Ionicons
-          name="arrow-back-outline"
-          size={24}
-          style={styles.leftArrow}
-        />
-      </Pressable>
+    <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Pressable
+          style={styles.goBack}
+          onPress={() => navigation.navigate("Verification")}
+        >
+          <Ionicons
+            name="arrow-back-outline"
+            size={24}
+            style={styles.leftArrow}
+          />
+        </Pressable>
 
-      <View style={styles.content}>
-        <Image
-          style={styles.img}
-          source={require("../assets/imgs/newPass.png")}
-        />
-        <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
-          Enter your new password
-        </Text>
-
-        <View style={styles.inputContiner}>
+        <View style={styles.content}>
           <Image
-            style={styles.absoluteImg}
-            source={require("../assets/imgs/lock_green.png")}
+            style={styles.img}
+            source={require("../assets/imgs/newPass.png")}
           />
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your password"
-            secureTextEntry={firstPass}
-          />
-          <Pressable
-            style={styles.rightImgPress}
-            onPress={() => {
-              setFirstPass(!firstPass);
-            }}
-          >
-            <Image
-              style={styles.rightImg}
-              source={require("../assets/imgs/eye.png")}
-            />
-          </Pressable>
-        </View>
-        <View style={styles.inputContiner}>
-          <Image
-            style={styles.absoluteImg}
-            source={require("../assets/imgs/lock_green.png")}
-          />
+          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
+            Enter your new password
+          </Text>
 
-          <TextInput
-            style={styles.input}
-            keyboardType="ascii-capable"
-            placeholder="Enter your password"
-            secureTextEntry={lastPass}
-          />
-
-          <Pressable
-            style={styles.rightImgPress}
-            onPress={() => {
-              setlastPass(!lastPass);
-            }}
-          >
+          <View style={styles.inputContiner}>
             <Image
-              style={styles.rightImg}
-              source={require("../assets/imgs/eye.png")}
+              style={styles.absoluteImg}
+              source={require("../assets/imgs/lock_green.png")}
             />
-          </Pressable>
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your password"
+              secureTextEntry={firstPass}
+            />
+            <Pressable
+              style={styles.rightImgPress}
+              onPress={() => {
+                setFirstPass(!firstPass);
+              }}
+            >
+              <Image
+                style={styles.rightImg}
+                source={require("../assets/imgs/eye.png")}
+              />
+            </Pressable>
+          </View>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../assets/imgs/lock_green.png")}
+            />
+
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter your password"
+              secureTextEntry={lastPass}
+            />
+
+            <Pressable
+              style={styles.rightImgPress}
+              onPress={() => {
+                setlastPass(!lastPass);
+              }}
+            >
+              <Image
+                style={styles.rightImg}
+                source={require("../assets/imgs/eye.png")}
+              />
+            </Pressable>
+          </View>
         </View>
+
+        <Pressable
+          style={styles.btnLogIn}
+          onPress={() => navigation.navigate("PassUpdated")}
+        >
+          <Text style={styles.text}>Continue</Text>
+        </Pressable>
       </View>
-
-      <Pressable
-        style={styles.btnLogIn}
-        onPress={() => navigation.navigate("PassUpdated")}
-      >
-        <Text style={styles.text}>Continue</Text>
-      </Pressable>
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 
