@@ -15,23 +15,12 @@ export default function LogIn({ navigation }) {
   const [check, setCheck] = useState(false);
 
   return (
-<<<<<<< HEAD
+
     <KeyboardAwareScrollView style={{ flex: 1, flexGrow: 1 }} contentContainerStyle={{ flex: 1 }}>
       <View style={styles.container}>
         <Image source={require("../assets/imgs/logo.png")} style={styles.logo} />
         <View style={styles.form} >
-=======
-    <KeyboardAwareScrollView
-      style={{ flex: 1, flexGrow: 1 }}
-      contentContainerStyle={{ flex: 1 }}
-    >
-      <View style={styles.container}>
-        <Image
-          source={require("../assets/imgs/logo.png")}
-          style={styles.logo}
-        />
-        <View style={styles.form}>
->>>>>>> d0c225e5d0d4462383ad66f9526f550d86b6ed04
+
           <Text style={styles.title}>Log in to your account</Text>
           <View style={styles.inputContiner}>
             <Image
@@ -58,11 +47,8 @@ export default function LogIn({ navigation }) {
             />
           </View>
 
-<<<<<<< HEAD
           <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }} >
-=======
-          <View style={{ display: "flex", flexDirection: "row", gap: 10 }}>
->>>>>>> d0c225e5d0d4462383ad66f9526f550d86b6ed04
+
             <Checkbox
               value={check}
               style={styles.checkbox}
@@ -72,14 +58,8 @@ export default function LogIn({ navigation }) {
             <Text onPress={() => setCheck(!check)}>I am doctor</Text>
           </View>
 
-<<<<<<< HEAD
           <Pressable style={styles.btnLogIn} onPress={() => navigation.navigate(check ? "PagesDr" : "PagesUser")}>
-=======
-          <Pressable
-            style={styles.btnLogIn}
-            onPress={() => navigation.navigate(check ? "PagesDr" : "PagesUser")}
-          >
->>>>>>> d0c225e5d0d4462383ad66f9526f550d86b6ed04
+
             <Text style={styles.text}>Log In</Text>
           </Pressable>
 
@@ -109,11 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   form: {
-<<<<<<< HEAD
     display: 'flex',
-=======
-    display: "flex",
->>>>>>> d0c225e5d0d4462383ad66f9526f550d86b6ed04
     gap: 20,
   },
   logo: {
