@@ -31,6 +31,7 @@ export default OnlineQueue = ({ navigation }) => {
             fontWeight: "700",
             color: "#10B584",
             textAlign: "center",
+            fontFamily : "mrt-bold",
           }}
         >
           Online Queue
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold",
   },
 
   goBack: {

@@ -88,11 +88,13 @@ const styles = StyleSheet.create({
     color: "#10B584",
     fontSize: 20,
     fontWeight: "600",
+    fontFamily : "mrt-sbold",
   },
   userName: {
     color: "#1F1F1F",
     fontSize: 20,
     fontWeight: "600",
+    fontFamily : "mrt-sbold",
   },
   cards: {
     flex: 1,
@@ -104,12 +106,13 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#FFFFFF",
     fontSize : "16px",
-    width: 170,
+    width: "48%",
     height: 200,
     display: "flex",
     flexDirection: "row",
     borderRadius: 12,
     overflow: "hidden",
+    
   },
   cardText: {
     color: "#10B584",
@@ -117,6 +120,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginTop: 20,
     marginLeft: 20,
+    fontFamily : "mrt-sbold",
   },
   cardImg: {
     width: "70%",

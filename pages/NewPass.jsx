@@ -33,7 +33,7 @@ export default NewPass = ({ navigation }) => {
             style={styles.img}
             source={require("../assets/imgs/newPass.png")}
           />
-          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
+          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600",fontFamily : "mrt-sbold" }}>
             Enter your new password
           </Text>
 
@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     color: "#1F1F1F",
     width: "100%",
+    fontFamily : "mrt-sbold"
   },
 
   rightImgPress: {
@@ -191,5 +192,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold"
   },
 });

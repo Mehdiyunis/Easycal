@@ -68,6 +68,7 @@ export default DropDown = ({ icon }) => {
               color: "#1F1F1F",
               marginBottom: 2,
               borderRadius: 4,
+              fontFamily : "mrt-sbold",
             }}
           >
             {item.value}
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     borderRadius: 4,
     color: "#1F1F1F",
+    fontFamily : "mrt-sbold",
   },
   rightImg: {
     position: "absolute",
