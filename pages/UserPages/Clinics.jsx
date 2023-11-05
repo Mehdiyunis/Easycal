@@ -40,6 +40,7 @@ export default Clinics = ({navigation}) => {
               fontWeight: "700",
               color: "#10B584",
               textAlign: "center",
+              fontFamily : "mrt-bold",
             }}
             
           >
@@ -101,6 +102,7 @@ export default Clinics = ({navigation}) => {
               color: "#1F1F1F",
               fontSize: 14,
               fontWeight: "600",
+              fontFamily : "mrt-sbold",
             }}
           >
             Results : 3 clinics found
@@ -126,7 +128,7 @@ export default Clinics = ({navigation}) => {
           >
             <View style={{ flex: 1 , gap: 10}}>
               <Text
-                style={{ color: "#1F1F1F", fontSize: 16, fontWeight: "700" }}
+                style={{ color: "#1F1F1F", fontSize: 16, fontWeight: "700" ,fontFamily : "mrt-bold",}}
               >
                 Medistyle hospital
               </Text>
@@ -134,15 +136,15 @@ export default Clinics = ({navigation}) => {
               <View style={{display: 'flex', flexDirection: 'row' ,gap: 10}}>
                 <Image source={require("../../assets/imgs/location.png")} />
                 <Text
-                  style={{ color: "#7C7C7C", fontSize: 13, fontWeight: "500" }}
+                  style={{ color: "#7C7C7C", fontSize: 13, fontWeight: "500",fontFamily : "mrt-medium",}}
                 >
                   18A Əhməd Rəcəbli, Bakı
                 </Text>
               </View>
 
               <View style={{display: 'flex' , flexWrap: 'wrap', flexDirection: 'row', gap: 10}}>
-                <Text style={{backgroundColor: '#eee', borderRadius: 4 , overflow : "hidden", paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600'}}>Urologiya</Text>
-                <Text style={{backgroundColor: '#eee', borderRadius: 4 , overflow : "hidden", paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600'}}>Laboratoriya</Text>
+                <Text style={{backgroundColor: '#eee', borderRadius: 4 , overflow : "hidden", paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600',fontFamily : "mrt-sbold",}}>Urologiya</Text>
+                <Text style={{backgroundColor: '#eee', borderRadius: 4 , overflow : "hidden", paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600',fontFamily : "mrt-sbold",}}>Laboratoriya</Text>
               </View>
             </View>
 
@@ -159,6 +161,7 @@ export default Clinics = ({navigation}) => {
                   color: "white",
                   fontSize: 12,
                   fontWeight: "600",
+                  fontFamily : "mrt-sbold",
                 }}
               >
                 View more
@@ -221,5 +224,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     borderRadius: 4,
+    fontFamily : "mrt-sbold",
   },
 });

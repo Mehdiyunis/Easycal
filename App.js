@@ -17,6 +17,9 @@ import AddAnalyze from "./pages/DrPages/AddAnalyze";
 import Appointments from "./pages/DrPages/Appointments";
 import ProfileUser from "./pages/UserPages/ProfileUser";
 import ProfileDr from "./pages/DrPages/ProfileDr";
+import { useFonts } from 'expo-font';
+import { useEffect } from "react";
+import * as SplashScreen from 'expo-splash-screen';
 
 
 const Stack = createNativeStackNavigator();
@@ -135,62 +138,86 @@ function PagesDr() {
 }
 
 function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="FirstPage"
-          component={FirstPage}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="CreateUserAccount"
-          component={CreateUserAccount}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="CreateDrAccount"
-          component={CreateDrAccount}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="LogIn"
-          component={LogIn}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ForgotPasword"
-          component={ForgotPasword}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Verification"
-          component={Verification}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="NewPass"
-          component={NewPass}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="PassUpdated"
-          component={PassUpdated}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="PagesUser"
-          component={PagesUser}
-          options={{ headerShown: false }}
-        />
 
-        <Stack.Screen
-          name="PagesDr"
-          component={PagesDr}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+  const [fontsLoaded] = useFonts({
+    "mrt-mid": require("./assets/Montserrat/static/Montserrat-Medium.ttf"),
+    "mrt-bold": require("./assets/Montserrat/static/Montserrat-Bold.ttf"),
+    "mrt-xbold": require("./assets/Montserrat/static/Montserrat-ExtraBold.ttf"),
+    "mrt-sbold": require("./assets/Montserrat/static/Montserrat-SemiBold.ttf"),
+    "mrt-regular": require("./assets/Montserrat/static/Montserrat-Regular.ttf"),
+    "mrt-light": require("./assets/Montserrat/static/Montserrat-Light.ttf"),
+    "mrt-medium": require("./assets/Montserrat/static/Montserrat-Medium.ttf"),
+  });
+
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+    prepare();
+  }, []);
+
+  if (!fontsLoaded) {
+    return undefined;
+  } else {
+    SplashScreen.hideAsync();
+  }
+
+  return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="FirstPage"
+            component={FirstPage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="CreateUserAccount"
+            component={CreateUserAccount}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="CreateDrAccount"
+            component={CreateDrAccount}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="LogIn"
+            component={LogIn}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ForgotPasword"
+            component={ForgotPasword}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Verification"
+            component={Verification}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="NewPass"
+            component={NewPass}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="PassUpdated"
+            component={PassUpdated}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="PagesUser"
+            component={PagesUser}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="PagesDr"
+            component={PagesDr}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
 

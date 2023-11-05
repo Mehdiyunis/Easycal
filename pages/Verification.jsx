@@ -53,7 +53,7 @@ export default Verification = ({ navigation }) => {
             style={styles.img}
             source={require("../assets/imgs/verify.png")}
           />
-          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
+          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600",fontFamily : "mrt-sbold"}}>
             Enter verification code
           </Text>
           <Text
@@ -62,6 +62,7 @@ export default Verification = ({ navigation }) => {
               fontSize: 16,
               fontWeight: "400",
               textAlign: "center",
+              fontFamily : "mrt-light"
             }}
           >
             Enter the 4-digit code we sent to your e-mail address.
@@ -144,6 +145,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold"
   },
 
   inputs: {
@@ -158,11 +160,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     backgroundColor: '#eee',
     borderRadius: 3,
+    fontFamily : "mrt-sbold"
   },
   inputed: {
     width: 50,
     height: 50,
     textAlign: "center",
+    fontFamily : "mrt-sbold",
     fontSize: 20,
     backgroundColor: '#eee',
     borderRadius: 3,
@@ -177,7 +181,8 @@ const styles = StyleSheet.create({
   resend: {
     color: '#10B584',
     fontSize: 18,
-    fontWeight: '600'
+    fontWeight: '600',
+    fontFamily : "mrt-sbold"
   }
 
 });

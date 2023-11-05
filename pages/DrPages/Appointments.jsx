@@ -19,7 +19,7 @@ export default Appointments = ({ navigation }) => {
             width: 400,
             height: 290,
             objectFit: "cover",
-            opacity: 0.2
+            opacity: 0.2,
           }}
           source={require("../../assets/imgs/backgroundAppoint.png")}
         />
@@ -43,6 +43,7 @@ export default Appointments = ({ navigation }) => {
             fontWeight: "700",
             color: "#10B584",
             textAlign: "center",
+            fontFamily : "mrt-bold"
           }}
         >
           Appointments
@@ -66,6 +67,7 @@ export default Appointments = ({ navigation }) => {
               flexDirection: "row",
               gap: 4,
               justifyContent: "flex-end",
+              alignItems : "baseline"
             }}
           >
             <Image
@@ -78,6 +80,7 @@ export default Appointments = ({ navigation }) => {
                 fontSize: 14,
                 fontWeight: "600",
                 lineHeight: 17,
+                fontFamily : "mrt-sbold"
               }}
             >
               Date
@@ -89,6 +92,7 @@ export default Appointments = ({ navigation }) => {
               flexDirection: "row",
               gap: 4,
               justifyContent: "center",
+              alignItems : "baseline"
             }}
           >
             <Image
@@ -101,6 +105,7 @@ export default Appointments = ({ navigation }) => {
                 fontSize: 14,
                 fontWeight: "600",
                 lineHeight: 17,
+                fontFamily : "mrt-sbold"
               }}
             >
               Pasient
@@ -112,6 +117,7 @@ export default Appointments = ({ navigation }) => {
               flexDirection: "row",
               gap: 4,
               justifyContent: "flex-start",
+              alignItems : "baseline"
             }}
           >
             <Image
@@ -124,6 +130,7 @@ export default Appointments = ({ navigation }) => {
                 fontSize: 14,
                 fontWeight: "600",
                 lineHeight: 17,
+                fontFamily : "mrt-sbold"
               }}
             >
               Hour
@@ -186,6 +193,7 @@ const styles = StyleSheet.create({
     lineHeight: 17,
     flex: 1,
     textAlign: "right",
+    fontFamily : "mrt-medium"
   },
   appointPasient: {
     color: "#1F1F1F",
@@ -194,6 +202,7 @@ const styles = StyleSheet.create({
     lineHeight: 17,
     flex: 1,
     textAlign: "center",
+    fontFamily : "mrt-medium"
   },
   appointHous: {
     color: "#1F1F1F",
@@ -201,6 +210,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     lineHeight: 17,
     flex: 1,
+    fontFamily : "mrt-bold"
   },
   bgContainer: {
     position: "absolute",

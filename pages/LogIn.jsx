@@ -62,12 +62,11 @@ export default function LogIn({ navigation }) {
               color="#10B584"
               onValueChange={setCheck}
             />
-            <Text onPress={() => setCheck(!check)}>I am doctor</Text>
+            <Text style = {{fontFamily : "mrt-sbold"}} onPress={() => setCheck(!check)}>I am doctor</Text>
           </View>
 
 
           <Pressable style={styles.btnLogIn} onPress={() => {
-            console.log("Hello");
             signIn(email, password)
             .then(() => {
               navigation.navigate(check ? "PagesDr" : "PagesUser");
@@ -99,11 +98,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 39,
     paddingTop: 24,
     justifyContent: "space-evenly",
+    
   },
   title: {
     color: "#1F1F1F",
     fontSize: 20,
     fontWeight: "600",
+    fontFamily : "mrt-sbold"
   },
   form: {
     display: 'flex',
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     borderRadius: 4,
+    fontFamily : "mrt-sbold"
   },
 
   checkbox: {
@@ -152,11 +154,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold"
   },
   forget: {
     color: "#7C7C7C",
     fontSize: 18,
     fontWeight: "600",
     textAlign: "center",
+    fontFamily : "mrt-sbold"
   },
 });

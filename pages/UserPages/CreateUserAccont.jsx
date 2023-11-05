@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
     paddingVertical: 50,
+    fontFamily : "mrt-bold",
   },
   inputContiner: {
     position: "relative",
@@ -169,6 +170,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     borderRadius: 4,
+    fontFamily : "mrt-sbold",
   },
   joinUs: {
     backgroundColor: "#10B584",
@@ -182,5 +184,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold",
   },
 });

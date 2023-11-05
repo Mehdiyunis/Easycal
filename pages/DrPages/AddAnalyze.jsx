@@ -32,6 +32,7 @@ export default AddAnalyze = ({ navigation }) => {
             fontWeight: "700",
             color: "#10B584",
             textAlign: "center",
+            fontFamily : "mrt-bold",
           }}
         >
           Add analyze
@@ -110,6 +111,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold",
   },
 
   goBack: {
@@ -164,5 +166,6 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     borderRadius: 4,
     color: "#1F1F1F",
+    fontFamily : "mrt-sbold",
   },
 });

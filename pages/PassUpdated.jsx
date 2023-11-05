@@ -19,7 +19,7 @@ export default PassUpdated = ({ navigation }) => {
           style={styles.img}
           source={require("../assets/imgs/Successmark.png")}
         />
-        <Text style={{ color: "#1F1F1F", fontSize: 20, fontWeight: "600" , textAlign: 'center'}}>
+        <Text style={{ color: "#1F1F1F", fontSize: 20, fontWeight: "600" , textAlign: 'center',fontFamily : "mrt-sbold",}}>
           The password has been updated!
         </Text>
         <Text
@@ -28,6 +28,7 @@ export default PassUpdated = ({ navigation }) => {
             fontSize: 16,
             fontWeight: "400",
             textAlign: "center",
+            fontFamily : "mrt-light",
           }}
         >
           You can now use your new password!{"\n"} Don't forget this time ;{")"}
@@ -82,5 +83,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold",
   },
 });

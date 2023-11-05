@@ -38,6 +38,7 @@ export default ProfileUser = ({navigation}) => {
           textAlign: "center",
           marginTop: 30,
           marginBottom: 20,
+          fontFamily : "mrt-bold"
         }}
       >
         Profile
@@ -55,10 +56,10 @@ export default ProfileUser = ({navigation}) => {
         />
 
         <View style={{ justifyContent: "center" }}>
-          <Text style={{ color: "#1F1F1F", fontSize: 20, fontWeight: "bold" }}>
+          <Text style={{ color: "#1F1F1F", fontSize: 20, fontWeight: "bold",fontFamily : "mrt-sbold" }}>
             John Doe
           </Text>
-          <Text style={{ color: "#7C7C7C", fontSize: 12, fontWeight: "500" }}>
+          <Text style={{ color: "#7C7C7C", fontSize: 12, fontWeight: "500",fontFamily : "mrt-medium" }}>
             islam.salamzade.191@gmail.com
           </Text>
         </View>
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginTop: 20,
     marginLeft: 20,
+    fontFamily : "mrt-sbold"
   },
   cardImg: {
     width: "70%",

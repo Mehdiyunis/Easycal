@@ -60,10 +60,12 @@ const styles = StyleSheet.create({
   textWelcome: {
     color: "#1F1F1F",
     fontSize: 22,
+    fontFamily : "mrt-sbold",
     fontWeight: "600",
   },
   textLogSign: {
     color: "#7C7C7C",
+    fontFamily : "mrt-bold",
     fontSize: 22,
     fontWeight: "700",
   },
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
   btnSignUp: {
     backgroundColor: "#eee",
     borderRadius: 4,
+    fontSize : 22,
     paddingVertical: 18,
   },
 
@@ -104,6 +107,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold"
   },
 
   textOther: {
@@ -111,5 +115,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "#10B584",
+    fontFamily : "mrt-sbold"
   },
 });

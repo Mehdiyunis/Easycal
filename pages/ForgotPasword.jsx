@@ -31,7 +31,7 @@ const ForgotPasword = ({ navigation }) => {
             style={styles.img}
             source={require("../assets/imgs/frogotImage.png")}
           />
-          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600" }}>
+          <Text style={{ color: "#1F1F1F", fontSize: 24, fontWeight: "600",fontFamily : "mrt-sbold" }}>
             Forgot your password?
           </Text>
           <Text
@@ -40,6 +40,7 @@ const ForgotPasword = ({ navigation }) => {
               fontSize: 16,
               fontWeight: "400",
               textAlign: "center",
+              fontFamily : "mrt-light"
             }}
           >
             Don't worry, it can happen to anyone. Please enter the email address
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     color: "#1F1F1F",
     width: "100%",
+    fontFamily : "mrt-sbold"
   },
 
   btnLogIn: {
@@ -147,5 +149,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
+    fontFamily : "mrt-sbold"
   },
 });
