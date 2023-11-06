@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,18 +7,32 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
-  Keyboard
+  Keyboard,
+  ScrollView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import hosbitals from "../../hosbitals.json";
 
-export default Clinics = ({navigation}) => {
-
+export default Clinics = ({ navigation }) => {
   const handleUnfocus = () => {
     Keyboard.dismiss();
   };
 
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState(hosbitals);
+  const filterData = hosbitals.filter((item) =>item.name.toLowerCase().includes(search.toLowerCase()));
+
+
+  useEffect(() => {
+    setFilteredData(filterData);
+  }, [search]);
+
   return (
-    <View  onStartShouldSetResponder={handleUnfocus}  accessible={true} style={styles.section}>
+    <View
+      onStartShouldSetResponder={handleUnfocus}
+      accessible={true}
+      style={styles.section}
+    >
       <View style={styles.container}>
         <View
           style={{ width: "100%", position: "relative", marginVertical: 30 }}
@@ -34,51 +48,24 @@ export default Clinics = ({navigation}) => {
             />
           </Pressable>
 
-          <Text
-            style={{
-              fontSize: 24,
-              fontWeight: "700",
-              color: "#10B584",
-              textAlign: "center",
-              fontFamily : "mrt-bold",
-            }}
-            
-          >
-            Clinics
-          </Text>
+          <Text style={styles.headText}>Clinics</Text>
         </View>
 
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            gap: 10,
-          }}
-        >
-          
-            <View style={styles.inputContiner}>
-              <Image
-                style={styles.absoluteImg}
-                source={require("../../assets/imgs/search.png")}
-              />
-                <TextInput
-                  style={styles.input}
-                  keyboardType="ascii-capable"
-                  placeholder="Enter clinic name"
-                />   
-            </View>
+        <View style={styles.searchContainer}>
+          <View style={styles.inputContiner}>
+            <Image
+              style={styles.absoluteImg}
+              source={require("../../assets/imgs/search.png")}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="ascii-capable"
+              placeholder="Enter clinic name"
+              onChangeText={(v) => setSearch(v)}
+            />
+          </View>
 
-          <Pressable
-            style={{
-              width: 55,
-              backgroundColor: "#10B584",
-              borderRadius: 4,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <Pressable style={styles.settingPres}>
             <Image
               source={require("../../assets/imgs/settings.png")}
               style={{ width: 24, height: 24, objectFit: "contain" }}
@@ -86,27 +73,8 @@ export default Clinics = ({navigation}) => {
           </Pressable>
         </View>
 
-        <View
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexDirection: "row",
-            gap: 10,
-            paddingVertical: 15,
-          }}
-        >
-          <Text
-            style={{
-              flex: 1,
-              color: "#1F1F1F",
-              fontSize: 14,
-              fontWeight: "600",
-              fontFamily : "mrt-sbold",
-            }}
-          >
-            Results : 3 clinics found
-          </Text>
+        <View style={styles.resultsTextContainer}>
+          <Text style={styles.resultsLen}>Results : {filteredData.length} clinics found</Text>
           <Pressable style={{ width: 30, height: 30 }}>
             <Image
               style={{ width: "100%", height: "100%", objectFit: "contain" }}
@@ -115,61 +83,28 @@ export default Clinics = ({navigation}) => {
           </Pressable>
         </View>
 
-        <View style={{gap: 10}}>
-          <View
-            style={{
-              padding: 20,
-              backgroundColor: "white",
-              borderRadius: 12,
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <View style={{ flex: 1 , gap: 10}}>
-              <Text
-                style={{ color: "#1F1F1F", fontSize: 16, fontWeight: "700" ,fontFamily : "mrt-bold",}}
-              >
-                Medistyle hospital
-              </Text>
+        <ScrollView>
+          {filteredData.map((item) => (
+            <View key={item.key} style={styles.card}>
+              <View style={{ flex: 1, gap: 10 }}>
+                <Text style={styles.companyName}>{item?.name}</Text>
 
-              <View style={{display: 'flex', flexDirection: 'row' ,gap: 10}}>
-                <Image source={require("../../assets/imgs/location.png")} />
-                <Text
-                  style={{ color: "#7C7C7C", fontSize: 13, fontWeight: "500",fontFamily : "mrt-medium",}}
-                >
-                  18A Əhməd Rəcəbli, Bakı
-                </Text>
+                <View style={{ display: "flex", flexDirection: "row", gap: 10 }}>
+                  <Image source={require("../../assets/imgs/location.png")} />
+                  <Text style={styles.address}>{item?.address}</Text>
+                </View>
+
+                <View style={styles.bolmeler}>
+                {item?.bolmeler.map(bolme=><Text style={styles.bolme}>{bolme}</Text>)}                  
+                </View>
               </View>
 
-              <View style={{display: 'flex' , flexWrap: 'wrap', flexDirection: 'row', gap: 10}}>
-                <Text style={{backgroundColor: '#eee', borderRadius: 4 , overflow : "hidden", paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600',fontFamily : "mrt-sbold",}}>Urologiya</Text>
-                <Text style={{backgroundColor: '#eee', borderRadius: 4 , overflow : "hidden", paddingVertical: 5, paddingHorizontal: 10, color: '#10B584', fontSize: 8, fontWeight: '600',fontFamily : "mrt-sbold",}}>Laboratoriya</Text>
-              </View>
+              <TouchableOpacity style={styles.viewMore} onPress={()=>navigation.navigate("Hospitals", {item})}>
+                <Text style={styles.viewText}>View more</Text>
+              </TouchableOpacity>
             </View>
-
-            <TouchableOpacity
-              style={{
-                borderRadius: 4,
-                backgroundColor: "#10B584",
-                paddingVertical: 6,
-                paddingHorizontal: 12,
-              }}
-            >
-              <Text
-                style={{
-                  color: "white",
-                  fontSize: 12,
-                  fontWeight: "600",
-                  fontFamily : "mrt-sbold",
-                }}
-              >
-                View more
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-        </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
@@ -224,6 +159,93 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     borderRadius: 4,
-    fontFamily : "mrt-sbold",
+    fontFamily: "mrt-sbold",
+  },
+  headText: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#10B584",
+    textAlign: "center",
+    fontFamily: "mrt-bold",
+  },
+  searchContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  settingPres: {
+    width: 55,
+    backgroundColor: "#10B584",
+    borderRadius: 4,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  resultsTextContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 10,
+    paddingVertical: 15,
+  },
+  resultsLen: {
+    flex: 1,
+    color: "#1F1F1F",
+    fontSize: 14,
+    fontWeight: "600",
+    fontFamily: "mrt-sbold",
+  },
+  card: {
+    padding: 20,
+    backgroundColor: "white",
+    borderRadius: 12,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  companyName: {
+    color: "#1F1F1F",
+    fontSize: 16,
+    fontWeight: "700",
+    fontFamily: "mrt-bold",
+  },
+  address: {
+    color: "#7C7C7C",
+    fontSize: 13,
+    fontWeight: "500",
+    fontFamily: "mrt-medium",
+    flex: 1,
+  },
+  bolmeler: {
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "row",
+    gap: 10,
+  },
+  bolme: {
+    backgroundColor: "#eee",
+    borderRadius: 4,
+    overflow: "hidden",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    color: "#10B584",
+    fontSize: 8,
+    fontWeight: "600",
+    fontFamily: "mrt-sbold",
+  },
+  viewMore: {
+    borderRadius: 4,
+    backgroundColor: "#10B584",
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+  },
+  viewText: {
+    color: "white",
+    fontSize: 12,
+    fontWeight: "600",
+    fontFamily: "mrt-sbold",
   },
 });

@@ -12,13 +12,16 @@ import {
 
 export default Home = ({navigation}) => {
 
+/*   const user = firebase.auth().currentUser;
+  const userName = user.displayName; */
+
 
   const data = [
     {
       id: 1,
       title: "Analysis",
       image: require("../../assets/imgs/services1.jpg"),
-      url:"OnlineQueue",
+      url:"Analysis",
     },
     {
       id: 2,

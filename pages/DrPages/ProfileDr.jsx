@@ -12,7 +12,7 @@ export default ProfileDr = ({navigation}) => {
       id: 2,
       title: "Notifications",
       image: require("../../assets/imgs/notif.jpeg"),
-      url: "OnlineQueue",
+      url: "NotificationsDr",
     },
     {
       id: 3,

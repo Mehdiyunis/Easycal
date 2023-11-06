@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "name":"Medistyle hospital",
+        "address":"18A Əhməd Rəcəbli, Bakı",
+        "bolmeler":["Urologiya","Laboratoriya"]
+    },
+    {
+        "id":2,
+        "name":"Alyans klinika",
+        "address":"Abbas Səhhət, Bakı, Nəsimi, AZ1007",
+        "bolmeler":["Urologiya","Laboratoriya"]
+    },
+    {
+        "id":3,
+        "name":"West hospital",
+        "address":"Şövkət Məmmədova küç. 52 ,Binəqədi",
+        "bolmeler":["Urologiya","Laboratoriya"]
+    },
+    {
+        "id":4,
+        "name":"Medstyle klinika",
+        "address":"Albert Aqarunov küçəsi 16, Bakı şəhəri",
+        "bolmeler":["Urologiya","Laboratoriya"]
+    },
+    {
+        "id":5,
+        "name":"Sağlam həyat",
+        "address":"Məhəmməd Naxçıvani, Bakı, Yasamal, AZ1065",
+        "bolmeler":["Urologiya","Laboratoriya"]
+    },
+    {
+        "id":6,
+        "name":"Referans",
+        "address":"İsmayıllı şəh., M.F.Axundov küç.65",
+        "bolmeler":["Urologiya","Laboratoriya"]
+    },
+    {
+        "id":7,
+        "name":"İstanbul NS",
+        "address":"ATATÜRK PR-Tİ 140",
+        "bolmeler":["Urologiya","Laboratoriya"]
+    },
+    {
+        "id":8,
+        "name":"Güvən klinika",
+        "address":"Atatürk prospekti 3078",
+        "bolmeler":["Urologiya","Laboratoriya"]
+    }
+]

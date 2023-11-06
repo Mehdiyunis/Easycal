@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   View,
   StyleSheet,
@@ -6,12 +6,33 @@ import {
   Text,
   Image,
   ScrollView,
-  TextInput
+  TextInput,
 } from "react-native";
-import DropDown from "../../components/DropDown";
 import { Ionicons } from "@expo/vector-icons";
 
 export default AddAnalyze = ({ navigation }) => {
+
+  const [selected, setSelected] = useState("");
+  const [openDropDown, setOpenDropDown] = useState(false);
+  const iconTransform = openDropDown ? [] : [{ rotate: "180deg" }];
+
+  const data = [
+    { key: 1, value: "8:00" },
+    { key: 2, value: "9:00" },
+    { key: 3, value: "10:00" },
+    { key: 4, value: "11:00" },
+    { key: 5, value: "12:00" },
+    { key: 6, value: "13:00" },
+    { key: 7, value: "14:00" },
+    { key: 8, value: "15:00" },
+    { key: 9, value: "16:00" },
+    { key: 10, value: "17:00" },
+    { key: 11, value: "18:00" },
+  ];
+
+
+
+
   return (
     <View style={styles.continer}>
       <View style={{ width: "100%", position: "relative", marginTop: 30 }}>
@@ -32,7 +53,7 @@ export default AddAnalyze = ({ navigation }) => {
             fontWeight: "700",
             color: "#10B584",
             textAlign: "center",
-            fontFamily : "mrt-bold",
+            fontFamily: "mrt-bold",
           }}
         >
           Add analyze
@@ -52,12 +73,12 @@ export default AddAnalyze = ({ navigation }) => {
           <View style={styles.inputContiner}>
             <Image
               style={styles.absoluteImg}
-              source={require("../../assets/imgs/lock_green.png")}
+              source={require("../../assets/imgs/userId.png")}
             />
             <TextInput
               style={styles.input}
               keyboardType="ascii-capable"
-              placeholder="Enter your сompany pin"
+              placeholder="Enter user’s id"
               secureTextEntry={false}
             />
           </View>
@@ -65,21 +86,72 @@ export default AddAnalyze = ({ navigation }) => {
           <View style={styles.inputContiner}>
             <Image
               style={styles.absoluteImg}
-              source={require("../../assets/imgs/lock_green.png")}
+              source={require("../../assets/imgs/choseFile.png")}
             />
             <TextInput
               style={styles.input}
               keyboardType="ascii-capable"
-              placeholder="Enter your сompany pin"
+              placeholder="Choose the analyze file"
               secureTextEntry={false}
             />
           </View>
 
-          <DropDown icon={require("../../assets/imgs/date.png")} />
+          <Pressable
+            style={styles.inputContiner}
+            onPress={() => setOpenDropDown(!openDropDown)}
+          >
+            <View>
+              <Image style={styles.absoluteImg} source={require("../../assets/imgs/date.png")} />
+
+              <TextInput
+                editable={false}
+                style={styles.input}
+                keyboardType="email-address"
+                placeholder={"Select your company"}
+                value={selected}
+              />
+
+              <Image
+                style={[styles.rightImg, { transform: iconTransform }]}
+                source={require("../../assets/imgs/up_icon.png")}
+              />
+            </View>
+
+            <ScrollView
+              nestedScrollEnabled={true}
+              style={{
+                display: openDropDown ? "block" : "none",
+                paddingTop: 6,
+                height: 200,
+              }}
+            >
+              {data.map((item) => (
+                <Text
+                  key={item.key}
+                  onPress={() => {
+                    setSelected(item.value);
+                    setOpenDropDown(!openDropDown);
+                  }}
+                  style={{
+                    padding: 11,
+                    fontSize: 14,
+                    fontWeight: "600",
+                    backgroundColor: "#eee",
+                    color: "#1F1F1F",
+                    marginBottom: 2,
+                    borderRadius: 4,
+                    fontFamily: "mrt-sbold",
+                  }}
+                >
+                  {item.value}
+                </Text>
+              ))}
+            </ScrollView>
+          </Pressable>
         </ScrollView>
         <Pressable
           style={styles.btnLogIn}
-          onPress={() => navigation.navigate("PassUpdated")}
+          onPress={() => navigation.navigate("HomeDr")}
         >
           <Text style={styles.text}>Continue</Text>
         </Pressable>
@@ -104,6 +176,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginBottom: 19,
     alignSelf: "stretch",
+    
   },
 
   text: {
@@ -111,7 +184,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     color: "white",
-    fontFamily : "mrt-sbold",
+    fontFamily: "mrt-sbold",
   },
 
   goBack: {
@@ -141,10 +214,7 @@ const styles = StyleSheet.create({
     transform: [{ translateX: -142.5 }],
   },
 
-  inputContiner: {
-    position: "relative",
-    marginBottom: 20,
-  },
+
 
   absoluteImg: {
     position: "absolute",
@@ -166,6 +236,23 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     borderRadius: 4,
     color: "#1F1F1F",
-    fontFamily : "mrt-sbold",
+    fontFamily: "mrt-sbold",
+  },
+  inputContiner: {
+    position: "relative",
+    marginBottom: 20,
+    justifyContent: "flex-end",
+  },
+
+  rightImg: {
+    position: "absolute",
+    display: "flex",
+    height: "100%",
+    alignItems: "center",
+    objectFit: "contain",
+    zIndex: 1,
+    top: 0,
+    right: 20,
+    transform: [{ rotate: "180deg" }],
   },
 });

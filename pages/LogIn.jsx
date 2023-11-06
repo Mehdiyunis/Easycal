@@ -16,6 +16,10 @@ export default function LogIn({ navigation }) {
   const [check, setCheck] = useState(false);
   const [email, setEmailValue] = useState("");
   const [password, setPasswordValue] = useState("");
+  const [loginResult, setLoginResult] = useState(false)
+  const [loginResultBool,setLoginResultBool] = useState(true)
+
+  const color = loginResultBool ? "#10B584" : "#e23636"
   
   return (
 
@@ -25,6 +29,7 @@ export default function LogIn({ navigation }) {
         <View style={styles.form} >
 
           <Text style={styles.title}>Log in to your account</Text>
+          {loginResult ? <Text style={[styles.loginResult , {color: color}]}>{loginResult}</Text> : ""}
           <View style={styles.inputContiner}>
             <Image
               style={styles.absoluteImg}
@@ -70,9 +75,12 @@ export default function LogIn({ navigation }) {
             signIn(email, password)
             .then(() => {
               navigation.navigate(check ? "PagesDr" : "PagesUser");
+              setLoginResultBool(true)
+              setLoginResult('Login successful')
             })
             .catch((e) => {
-              console.log(e)
+              setLoginResultBool(false)
+              setLoginResult('*Email or password is valid')
             })
           }}>
 
@@ -163,4 +171,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily : "mrt-sbold"
   },
+  loginResult:{
+    fontSize: 14,
+    marginVertical: -14,
+    fontFamily: 'mrt-sbold'
+  }
 });

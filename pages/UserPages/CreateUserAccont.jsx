@@ -9,9 +9,7 @@ import {
   Image,
   Pressable,
 } from "react-native";
-
 import { signUp, signIn } from "../../src/config/firebase";
-
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function CreateUserAccount({ navigation }) {

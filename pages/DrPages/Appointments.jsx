@@ -11,6 +11,28 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 export default Appointments = ({ navigation }) => {
+
+  const data = [
+        {
+            id: 1,
+            date:'18/12/2014',
+            name:'Q.Mehdi',
+            hour:'19:00'
+        },
+        {
+            id: 2,
+            date:'18/12/2014',
+            name:'Q.Mehdi',
+            hour:'19:00'
+        },
+        {
+            id: 3,
+            date:'18/12/2014',
+            name:'Q.Mehdi',
+            hour:'19:00'
+        },
+    ]
+
   return (
     <View style={styles.continer}>
       <View style={styles.bgContainer}>
@@ -138,11 +160,12 @@ export default Appointments = ({ navigation }) => {
           </View>
         </View>
 
-        <View style={styles.appointmentContainer}>
-          <Text style={styles.appointData}>18/12/2014</Text>
-          <Text style={styles.appointPasient}>Q.Mehdi</Text>
-          <Text style={styles.appointHous}>19:00</Text>
+        {data.map(item=><View key={item.id} style={styles.appointmentContainer}>
+          <Text style={styles.appointData}>{item.date}</Text>
+          <Text style={styles.appointPasient}>{item.name}</Text>
+          <Text style={styles.appointHous}>{item.hour}</Text>
         </View>
+        )}
       </ScrollView>
     </View>
   );
