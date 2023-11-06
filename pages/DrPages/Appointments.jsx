@@ -175,7 +175,6 @@ const styles = StyleSheet.create({
   continer: {
     flex: 1,
     justifyContent: "space-between",
-    paddingTop: 34,
     paddingHorizontal: 20,
     backgroundColor: "#F7F7F7",
   },

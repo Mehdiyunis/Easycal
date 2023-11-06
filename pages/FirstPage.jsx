@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingTop: 34,
     backgroundColor: "#F7F7F7",
   },
   textWelcome: {

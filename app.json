@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "AwesomeProject",
+    "name": "Easycal",
     "slug": "AwesomeProject",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#10B584"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.mehdiasgerov.AwesomeProject"
@@ -20,16 +22,22 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
       },
       "package": "com.mehdiasgerov.AwesomeProject"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
+    "package": "com.mehdiasgerov.AwesomeProject",
     "extra": {
       "eas": {
         "projectId": "585f58d6-da16-4778-aa46-c105ef1cdf4c"
       }
     }
+  },
+  "web": {
+    "favicon": "./assets/favicon.png"
+  },
+  "extra": {
+    "eas": {
+      "projectId": "585f58d6-da16-4778-aa46-c105ef1cdf4c"
+    }
   }
+}

@@ -9,19 +9,10 @@ import {
   Text,
 } from "react-native";
 
-export default DropDown = ({ icon }) => {
+export default DropDown = ({ icon , data , placeholder}) => {
   const [selected, setSelected] = useState("");
   const [openDropDown, setOpenDropDown] = useState(false);
   const iconTransform = openDropDown ? [] : [{ rotate: "180deg" }];
-
-  const data = [
-    { key: 1, value: "West" },
-    { key: 2, value: "Hosbital" },
-    { key: 3, value: "Shamakhinkha" },
-    { key: 4, value: "Ataturk" },
-    { key: 5, value: "Heyder Eliyev" },
-    { key: 6, value: "Prime" },
-  ];
 
   return (
     <Pressable
@@ -35,7 +26,7 @@ export default DropDown = ({ icon }) => {
           editable={false}
           style={styles.input}
           keyboardType="email-address"
-          placeholder={"Select your company"}
+          placeholder={placeholder}
           value={selected}
         />
 
@@ -45,7 +36,7 @@ export default DropDown = ({ icon }) => {
         />
       </View>
 
-      <ScrollView
+      {data ? <ScrollView
         nestedScrollEnabled={true}
         style={{
           display: openDropDown ? "block" : "none",
@@ -74,7 +65,7 @@ export default DropDown = ({ icon }) => {
             {item.value}
           </Text>
         ))}
-      </ScrollView>
+      </ScrollView> : ''}
     </Pressable>
   );
 };

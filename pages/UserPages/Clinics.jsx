@@ -95,7 +95,7 @@ export default Clinics = ({ navigation }) => {
                 </View>
 
                 <View style={styles.bolmeler}>
-                {item?.bolmeler.map(bolme=><Text style={styles.bolme}>{bolme}</Text>)}                  
+                {item?.bolmeler.map((bolme,index)=><Text key={index} style={styles.bolme}>{bolme}</Text>)}                  
                 </View>
               </View>
 
@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
   section: {
     flex: 1,
     justifyContent: "center",
-    paddingTop: 34,
     paddingHorizontal: 20,
     backgroundColor: "#F7F7F7",
   },

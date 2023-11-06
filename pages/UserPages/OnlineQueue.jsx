@@ -11,6 +11,51 @@ import DropDown from "../../components/DropDown";
 import { Ionicons } from "@expo/vector-icons";
 
 export default OnlineQueue = ({ navigation }) => {
+
+  const companys = [
+    { key: 1, value: "West" },
+    { key: 2, value: "Hosbital" },
+    { key: 3, value: "Shamakhinkha" },
+    { key: 4, value: "Ataturk" },
+    { key: 6, value: "Prime" },
+  ];
+
+  const doctors = [
+    { key: 1, value: "Mehdi Quluzadeh" },
+    { key: 2, value: "Islam Salamzade" },
+    { key: 3, value: "Tunzale Majidova" },
+    { key: 4, value: "Ziya Niyazli" },
+  ];
+
+  const date = [
+    { key: 1, value: "1 Noyabr" },
+    { key: 2, value: "2 Noyabr" },
+    { key: 3, value: "3 Noyabr" },
+    { key: 4, value: "4 Noyabr" },
+    { key: 5, value: "5 Noyabr" },
+    { key: 6, value: "6 Noyabr" },
+    { key: 7, value: "7 Noyabr" },
+    { key: 8, value: "8 Noyabr" },
+    { key: 9, value: "9 Noyabr" },
+    { key: 10, value: "10 Noyabr" },
+    { key: 11, value: "11 Noyabr" },
+  ];
+  const hours = [
+    { key: 1, value: "8:00" },
+    { key: 2, value: "9:00" },
+    { key: 3, value: "10:00" },
+    { key: 4, value: "11:00" },
+    { key: 5, value: "12:00" },
+    { key: 6, value: "13:00" },
+    { key: 7, value: "14:00" },
+    { key: 8, value: "15:00" },
+    { key: 9, value: "16:00" },
+    { key: 10, value: "17:00" },
+    { key: 11, value: "18:00" },
+  ];
+
+
+
   return (
     <View style={styles.continer}>
       <View style={{ width: "100%", position: "relative", marginTop: 30 }}>
@@ -49,16 +94,16 @@ export default OnlineQueue = ({ navigation }) => {
           contentContainerStyle={{ justifyContent: 'flex-end'}}
           nestedScrollEnabled={true}
         >
-          <DropDown icon={require("../../assets/imgs/prison.png")} />
-          <DropDown icon={require("../../assets/imgs/dr.png")} />
-          <DropDown icon={require("../../assets/imgs/date.png")} />
-          <DropDown icon={require("../../assets/imgs/hours.png")} />
+          <DropDown icon={require("../../assets/imgs/prison.png")} data={companys} placeholder={"Select company"}/>
+          <DropDown icon={require("../../assets/imgs/dr.png")} data={doctors} placeholder={"Select doctor"}/>
+          <DropDown icon={require("../../assets/imgs/date.png")} data={date} placeholder={"Select date"}/>
+          <DropDown icon={require("../../assets/imgs/hours.png")} data={hours} placeholder={"Select hour"}/>
         </ScrollView>
         <Pressable
           style={styles.btnLogIn}
-          onPress={() => navigation.navigate("PassUpdated")}
+          onPress={() =>alert("Operation Completed Successfully")}
         >
-          <Text style={styles.text}>Continue</Text>
+          <Text style={styles.text}>Sign up for a queue</Text>
         </Pressable>
       </View>
     </View>
@@ -69,7 +114,6 @@ const styles = StyleSheet.create({
   continer: {
     flex: 1,
     justifyContent: "space-between",
-    paddingTop: 34,
     paddingHorizontal: 20,
     backgroundColor: "#F7F7F7",
   },

@@ -39,7 +39,7 @@ export default Home = ({navigation}) => {
       id: 4,
       title: "Check-up",
       image: require("../../assets/imgs/services4.jpg"),
-      url:"OnlineQueue",
+      url:"",
     },
   ];
 
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
   continer: {
     flex: 1,
     justifyContent: "center",
-    paddingTop: 34,
     paddingHorizontal: 20,
     backgroundColor: "#F7F7F7",
   },
